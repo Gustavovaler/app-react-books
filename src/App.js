@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Menu from './components/Menu';
+import List from './components/List'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+class App extends React.Component{
+
+    constructor(props){
+      super(props);
+      this.state = {
+        books:[
+          {id:0, rating:2, title:"Harry potter y la piedra", image:'libro01.jpg'},
+          {id:1, rating:5, title:"Heller & Mary", image:'libro03.jpg'},
+          {id:2, rating:1, title:"Cien años de soledad", image:'libro02.jpg'},
+          {id:3, rating:4, title:"Campanita", image:'libro04.jpg'},
+        ]
+      };
+    }
+ render() {
+    return (
+    <div className="app">
+      <Menu title="Amozon" />
+      <List items={this.state.books}/>
     </div>
-  );
+    );
+  } 
 }
+
 
 export default App;
